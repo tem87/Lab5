@@ -198,7 +198,7 @@ const subtractMatrices = function (matrix1, matrix2) {
 };
 const multiplyMatrices = (matrix1, matrix2) => { 
     let multMatrix = [];
-
+    //check if the number of columns in the first matrix is equal to the number of rows in the second matrix
     if(matrix1[0].length !== matrix2.length){
         let errorMessage = "ERROR. Try again :)";
         displayErrorMessage(errorMessage);

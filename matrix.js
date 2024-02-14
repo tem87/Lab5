@@ -199,7 +199,7 @@ const subtractMatrices = function (matrix1, matrix2) {
 const multiplyMatrices = (matrix1, matrix2) => { 
     let multMatrix = [];
 
-    if(matrix1[0].length !== matrix2.length || matrix1.length !== matrix2[0].length){
+    if(matrix1[0].length !== matrix2.length){
         let errorMessage = "ERROR. Try again :)";
         displayErrorMessage(errorMessage);
         //setTimeout(clearErrorMessage, 3000);

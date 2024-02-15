@@ -229,46 +229,58 @@ Description : DOM Elements.
                     // Task 4: Create a new <p> element with the text "This is a new paragraph" and append it to the 'About Us' section
 					
 						const newpara= document.createElement('p');
-                        newpara.textContent='we are a company';
+                        newpara.textContent='This is a new paragraph';
+						newpara.style.color = 'red';
 						
 					    const aboutUs= document.querySelector('section');
 		
 				      aboutUs.appendChild(newpara);
                 
                     // Task 5: Add placeholders to input elements based on their corresponding label IDs
-                    const inputLabels = document.querySelectorAll('label');
-                    for (const i of input){
-						const id=i.getattribute('for');
-						const e = document.getElementById(id);
-						e.setAttribute('placeHolder',id);
+                    document.querySelectorAll('label').forEach(label => {
+						let inputId=label.getAttribute('for');
+						if (inputId){
+							let inputElement = document.getElementById(inputId);
+							if (inputElement){
+								let placeholder = inputId.charAt(0).toUpperCase()+ inputId.slice(1);
+								inputElement.setAttribute('placeholder',placeholder);
+							}
+						}
+					});
 
-
-					}
-                
+					
+                  
                     // Task 6: Set the src attribute of the image to point to ./images/example.svg
                     const imageElement = document.querySelector('.exampleImage');
                     if (imageElement) {
                         imageElement.setAttribute = 'images/example.svg';
 						
                     }
+					
                 
                     // Task 7: Add a new item in the navigation menu
                     const newNavItem = document.createElement('li');
-                    newNavItem.textContent = 'New Item';
-                    const navigationMenu = document.querySelector('.navigationMenu');
+                    newNavItem.textContent = 'Blog';
+					newNavItem.style.color='purple';
+                    const navigationMenu = document.querySelector('nav ul');
                     navigationMenu.appendChild(newNavItem);
                 
                     // Task 8: Change the submit button text upon clicking and make it disabled
-                    const submitButton = document.querySelector('button[type="submit"]');
-                    submitButton.addEventListener('click', function () {
-                        submitButton.textContent = 'Clicked!';
-                        submitButton.disabled = true;
-                    });
+                    const form = document.querySelector('section form');
+                    const submitButton = form.querySelector('input[type="button"]');
+					submitButton.addEventListener('click',function(event){
+						alert('Form submitted!');
+						submitButton.value='Submitted'
+						submitButton.disabled=true;
+						event.preventDefault();
+
+					});
+
                 
                     // Task 9: Change the text color of each item in the 'Related Links' to green
-                    const relatedLinksItems = document.querySelectorAll('.relatedLinks li');
-                    relatedLinksItems.forEach(item => {
-                        item.style.color = 'green';
+                    const relatedLinksItems = document.querySelectorAll('aside ul li a');
+                    relatedLinksItems.forEach(link => {
+                        link.style.color = 'green';
                     });
                 
                     // Task 10: Add a red solid border to the footer

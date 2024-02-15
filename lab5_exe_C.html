@@ -251,9 +251,9 @@ Description : DOM Elements.
 					
                   
                     // Task 6: Set the src attribute of the image to point to ./images/example.svg
-                    const imageElement = document.querySelector('.exampleImage');
-                    if (imageElement) {
-                        imageElement.setAttribute = 'images/example.svg';
+                    let img = document.querySelector('img');
+                    if (img) {
+                        img.setAttribute('src', './images/example.svg');
 						
                     }
 					
